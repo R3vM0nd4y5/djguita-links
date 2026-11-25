@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DJGuita publishing: TikTok sign-in received</title>
+<style>
+  body { margin: 0; background: #f4efe4; color: #2a2a26; font-family: Georgia, "Times New Roman", serif; }
+  main { max-width: 720px; margin: 48px auto; padding: 0 20px; }
+  h1 { font-size: 26px; color: #3b4a2f; font-weight: normal; }
+  p { font-size: 18px; line-height: 1.6; }
+  code { display: block; word-break: break-all; background: #fffdf8; border: 1px solid #e3dccb; border-radius: 8px; padding: 16px; font-size: 20px; }
+  .small { color: #8a8470; font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>DJGuita publishing</h1>
+  <p id="lead">TikTok answered. If a code shows below, copy the whole line and hand it to the desk. Nothing on this page is stored or sent anywhere.</p>
+  <code id="code">(no code in the address)</code>
+  <p class="small">This page is the sign-in return address of DJGuita publishing, the private publishing tool of Yukiyu Records LLC. It shows the one-time code TikTok hands back and does nothing else. <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a></p>
+</main>
+<script>
+  (function () {
+    var q = new URLSearchParams(window.location.search);
+    var code = q.get('code');
+    var err = q.get('error') || q.get('error_description') || q.get('errCode');
+    var box = document.getElementById('code');
+    if (code) { box.textContent = code; }
+    else if (err) { box.textContent = 'TikTok said: ' + err; }
+  })();
+</script>
+</body>
+</html>
